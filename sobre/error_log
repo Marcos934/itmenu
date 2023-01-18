@@ -1,0 +1,5 @@
+[21-Aug-2021 11:24:50 UTC] PHP Fatal error:  Uncaught Error: Class 'Login' not found in /home/mercadoc/delivery3.mercadocotia.tech/sobre/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/mercadoc/delivery3.mercadocotia.tech/sobre/index.php on line 2
+[15-Nov-2022 01:34:31 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/itmenuco/public_html/_app/Config.inc.php on line 30
