@@ -8,8 +8,8 @@ define('USER', 'root');
 define('PASS', '');
 define('DBSA', 'itmenuco_itmenu');
 
-define("EMAIL_MSG","marcos.mulinari97@gmail.com"); //Email para recebimento e envio de mensagens
-define("PHONE_NUMBER","92991461245"); //Telefone para chamarem no whats
+define("EMAIL_MSG", "marcos.mulinari97@gmail.com"); //Email para recebimento e envio de mensagens
+define("PHONE_NUMBER", "92991461245"); //Telefone para chamarem no whats
 
 
 // DEFINE IDENTIDADE DO SITE ################
@@ -27,7 +27,8 @@ $setUrl = (empty($getUrl) ? 'index' : $getUrl);
 $Url    = explode('/', $setUrl);
 
 // AUTO LOAD DE CLASSES ####################
-function __autoload($Class)
+spl_autoload_register('my_autoloader');
+function my_autoloader($Class)
 {
 
     $cDir = ['Conn', 'Helpers', 'Models'];
