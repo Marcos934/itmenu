@@ -107,3 +107,4 @@ if ($lerbanco->getResult()) :
 endif;
 
 require 'textos.config.php';
+require_once 'configFeatures/checkFeature.php';

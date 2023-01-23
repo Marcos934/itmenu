@@ -602,7 +602,11 @@ else:
 									<li><a href="<?=$site.$Url[0].'/';?>enderecos-delivery"><?=$texto['cadastros-enderecos'];?></a></li>
 									<li><a href="<?=$site.$Url[0].'/';?>cupom-desconto"><?=$texto['cadastros-cupons'];?></a></li>	
 									<li><a href="<?=$site.$Url[0].'/';?>add-observacao"><?=$texto['cadastros-observacoes'];?></a></li>	
-									<li><a href="<?=$site.$Url[0].'/';?>add-motoboys"><?=$texto['cadastros-motoboys'];?> <span class="badge" style="background-color: #dc3545; color: #ffffff;">Novo</span></a></li>
+									<li>
+									<?php if (CF_MOTOBOY): ?>
+										<a href="<?=$site.$Url[0].'/';?>add-motoboys"><?=$texto['cadastros-motoboys'];?> <span class="badge" style="background-color: #dc3545; color: #ffffff;">Novo</span></a>
+									<?php endif; ?>
+									</li>
 								</ul>
 							</li>
 							<li><a href="<?=$site.$Url[0].'/';?>pedidos"><?=$texto['msg_pedidos']?></a></li>

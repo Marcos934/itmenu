@@ -126,6 +126,7 @@ endif;
   endif;
   ?>
   
+<?php if (CF_MOTOBOY): ?>
    <!-- The Modal -->
   <span id="modal_listMotoboys_open" data-toggle="modal" data-target="#modal_listMotoboys"></span>
   <div class="modal" style="margin-top: 80px;" id="modal_listMotoboys">
@@ -216,6 +217,7 @@ endif;
         $("#modal_listMotoboys_open").click();
     }
 </script>
+<?php endif; ?>
 
   <style type="text/css">
     #divImprimir{
@@ -338,7 +340,9 @@ endif;
     
     
  <a style="margin: 15px;" id="botaoPrint2" class="btn btn-primary">Reimprimir Pedido<i class="icon-print-2"></i></button></a>
- <button onclick="listMotoboys(<?=$id;?>);" class="btn btn-success btn-xs">Enviar ao Motoboy</button>
+  <?php if (CF_MOTOBOY): ?>
+    <button onclick="listMotoboys(<?=$id;?>);" class="btn btn-success btn-xs">Enviar ao Motoboy</button>
+  <?php endif; ?>
 </center>
 <div class="container">
   <div style="margin: 0 auto;align-items: center;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;" class="row justify-content-center ">
