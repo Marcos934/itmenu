@@ -274,8 +274,17 @@ if(isset($get_dados_pedido['enviar_pedido']) && $get_dados_pedido['enviar_pedido
 
 		if(!empty($get_dados_pedido['mesa']) && !empty($get_dados_pedido['pessoas'])):
 			//$quarta_parte_pedido = "{$porcentagemg}*Observações:* <br /> {$get_dados_pedido['name_observacao_mesa']}<br /><br />*{$get_dados_pedido['data']}*";
-			$quarta_parte_pedido = ($_SESSION['desconto_cupom']['type_discount'] == 1 ? "{$porcentagemg}" : "{$fixed_valueg}")."*Observações:* <br /> {$get_dados_pedido['name_observacao_mesa']}<br /><br />*{$get_dados_pedido['data']}*";
-		$quarta_parte_pedido = str_replace('<br />', '%0A', $quarta_parte_pedido);
+		
+			if(!empty($_SESSION['desconto_cupom'])) {
+				$quarta_parte_pedido = $_SESSION['desconto_cupom']['type_discount'] == 1 ? "{$porcentagemg}" : "{$fixed_valueg}";
+			} else {
+				$quarta_parte_pedido = "{$fixed_valueg}";
+			}
+
+			// CONCATENA TUDO
+			$quarta_parte_pedido = $quarta_parte_pedido."*Observações:* <br /> {$get_dados_pedido['name_observacao_mesa']}<br /><br />*{$get_dados_pedido['data']}*";
+
+			$quarta_parte_pedido = str_replace('<br />', '%0A', $quarta_parte_pedido);
 	elseif(!empty($get_dados_pedido['forma_pagamento'])):
 
 		//$quarta_parte_pedido = "*Pagamento:* {$get_dados_pedido['forma_pagamento']}<br />*SubTotal* R$ ".Check::Real($get_dados_pedido['sub_total'])."<br />{$porcentagemg}{$msgSedelivery}*Total:* {$moeda} {$get_dados_pedido['total']}<br />*Troco para:* {$moeda} {$get_dados_pedido['valor_troco']}<br /><br />*{$get_dados_pedido['data']}*";
