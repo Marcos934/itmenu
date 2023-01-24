@@ -1830,18 +1830,7 @@ footer .form-group {
 }
 
 
-@media all and (max-width: 767px) {
 
-	#main_menu .panel-body {
-		padding: 12px;
-	}
-
-	#main_menu .table.cart-list td{
-		vertical-align: middle;
-		padding: 5px 0px;
-		position: relative;
-	}
-}
 
 
 .panel-title a .indicator{
@@ -2852,4 +2841,21 @@ ul.plan-features {
 	color: #4eb93e;
 	font-size: 15px;
 	padding: 0;
+}
+@media all and (max-width: 767px) {
+
+	#main_menu .panel-body {
+		padding: 12px;
+	}
+
+	#main_menu .table.cart-list td{
+		vertical-align: middle;
+		padding: 5px 0px;
+		position: relative;
+	}
+
+	.box_style_2, #cart_box{
+		padding: 10px;
+	}
+
 }
