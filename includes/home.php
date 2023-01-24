@@ -256,6 +256,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 														?>
 														<tr>
 															<td data-toggle="modal" data-target="#popuppedido_<?=$ido_DoItem;?>">
+															<div class="card-product-title hidden-lg hidden-md hidden-sm"><p><?=$nome_do_item;?></p></div>
 																<?php
 																if (!empty($img_item) && $img_item != "null" && file_exists("uploads/{$img_item}") && !is_dir("uploads/{$img_item}")):										
 																	if($detect->isMobile()): 
@@ -268,10 +269,10 @@ $diadehoje   = $diasemana[$diasemana_numero];
 										//echo "<figure class=\"thumb_menu_list\"><img src=\"img/menu-thumb-1.jpg\" alt=\"thumb\"></figure>";
 																endif;
 																?>									
-																<div class="card-product-title"><p><?=$nome_do_item;?></p></div>
-																<p class="card-product-content">
-																	<?=$descricao_item;?>
-																</p>
+																<div class="card-product-title hidden-xs"><p><?=$nome_do_item;?></p></div>
+																<div class="card-product-content">
+																	<p><?=$descricao_item;?></p>
+																</div>
 																<span class="card-product-price"><?php
 																$lerbanco->ExeRead("ws_relacao_tamanho", "WHERE id_user = :useriid AND id_item = :idiitem", "useriid={$getu}&idiitem={$ido_DoItem}");
 																if(!$lerbanco->getResult()):

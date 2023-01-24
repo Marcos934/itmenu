@@ -1828,6 +1828,22 @@ footer .form-group {
 	padding: 20px;
 	line-height:1.6 !important;
 }
+
+
+@media all and (max-width: 767px) {
+
+	#main_menu .panel-body {
+		padding: 12px;
+	}
+
+	#main_menu .table.cart-list td{
+		vertical-align: middle;
+		padding: 5px 0px;
+		position: relative;
+	}
+}
+
+
 .panel-title a .indicator{
 	color:#8560a8;
 }
