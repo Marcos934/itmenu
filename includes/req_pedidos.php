@@ -61,7 +61,7 @@ $a = urldecode($a);
                     $pagS = (!empty($a) && $a == 'Aberto' || $a == 'Finalizado' || $a == 'Cancelado' || $a == 'Disponível para Retirada' || $a == 'Em Andamento' || $a == 'Saiu para Entrega' ? "&status={$a}" : "");
                     $getpage = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
                     $pager = new Pager("{$site}{$Url[0]}/pedidos{$pagS}&page=");
-                    $pager->ExePager($getpage, 5);
+                    $pager->ExePager($getpage, GC_LIMIT_ORDER_PAGE);
                     //FIM PAGINAÇÃO
                     $qurAberto = "Aberto";
                     $qurFinalizado = "Finalizado";

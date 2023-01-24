@@ -108,3 +108,4 @@ endif;
 
 require 'textos.config.php';
 require_once 'configFeatures/checkFeature.php';
+require_once 'constants.php';
