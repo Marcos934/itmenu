@@ -548,8 +548,8 @@ else:
 		<div class="row">			
 			<div class="col--md-4 col-sm-4 col-xs-4">
 				<a href="<?=$site.$Url[0];?>" id="logo">
-					<img src="<?= $site; ?>img/home.png" height="30" width="40" alt="" data-retina="true" class="hidden-xs">
-					<img src="<?= $site; ?>img/home.png" height="30" width="40" alt="" data-retina="true" class="hidden-lg hidden-md hidden-sm">
+					<img src="<?= $site; ?>img/home.png" alt="home icon" data-retina="true" class="hidden-xs home-icon">
+					<img src="<?= $site; ?>img/home.png" alt="home icon" data-retina="true" class="hidden-lg hidden-md hidden-sm home-icon-mobile">
 				</a>
 			</div>
 			<nav class="col--md-8 col-sm-8 col-xs-8">
