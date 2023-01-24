@@ -2825,3 +2825,15 @@ ul.plan-features {
 .plan-tall + .plan {
 	border-left: 0;
 }
+
+.item-header-value {
+	color: #4eb93e;
+	font-size: 30px;
+	padding: 0;
+}
+
+.item-header-choice {
+	color: #4eb93e;
+	font-size: 15px;
+	padding: 0;
+}

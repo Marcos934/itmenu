@@ -299,9 +299,9 @@ $diadehoje   = $diasemana[$diasemana_numero];
 																							<center><b><?=$nome_item;?> <?php
 																							$lerbanco->ExeRead("ws_relacao_tamanho", "WHERE id_user = :useriid AND id_item = :idiitem", "useriid={$getu}&idiitem={$ido_DoItem}");
 																							if(!$lerbanco->getResult()):
-																								echo "<br /><b style='color: #4eb93e;'>R$ ".Check::real($preco_item)."</b>";
+																								echo "<br /><b class='item-header-value'>R$ ".Check::real($preco_item)."</b>";
 																							else:
-																								echo "<br /><b style='color: #4eb93e;'>Escolha uma opção abaixo</b>";
+																								echo "<br /><b class='item-header-choice'>Escolha uma opção abaixo</b>";
 																							endif;
 
 
