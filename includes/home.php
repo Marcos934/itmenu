@@ -235,19 +235,11 @@ $diadehoje   = $diasemana[$diasemana_numero];
 										";
 									else:
 										?>
-										<table class="table table-striped cart-list">
-
-
+										<table class="table table-hover cart-list">
 											<thead>
-												<tr>
-													<th>
-
-													</th>
-
-												</tr>
+												
 											</thead>
-											<tbody>											
-
+											<tbody>			
 												<?php							
 												foreach($lerbanco->getResult() as $itemm):
 													extract($itemm);
@@ -274,23 +266,22 @@ $diadehoje   = $diasemana[$diasemana_numero];
 										//echo "<figure class=\"thumb_menu_list\"><img src=\"img/menu-thumb-1.jpg\" alt=\"thumb\"></figure>";
 																endif;
 																?>									
-																<h5 style="margin-top: 3px;"><?=$nome_do_item;?></h5>
-																<p>
+																<div class="card-product-title"><p><?=$nome_do_item;?></p></div>
+																<p class="card-product-content">
 																	<?=$descricao_item;?>
-
 																</p>
-																<strong style="float: right;"><?php
+																<span class="card-product-price"><?php
 																$lerbanco->ExeRead("ws_relacao_tamanho", "WHERE id_user = :useriid AND id_item = :idiitem", "useriid={$getu}&idiitem={$ido_DoItem}");
 																if(!$lerbanco->getResult()):
-																	echo "<b style='cursor:pointer;'>R$ ".Check::real($preco_item)."</b>";
+																	echo "<span>R$ ".Check::real($preco_item)."</span>";
 																else:
 																	$total = $lerbanco->getRowCount();
 
-																	echo "<span style='cursor:pointer;'>Ver Valores<span>";
+																	echo "<span>Ver Valores<span>";
 																endif;
 
 
-																?></strong>
+																?></span>
 															</td>
 
 
