@@ -42,7 +42,6 @@ $a = urldecode($a);
                     <th>Total</th>
                     <th>Status</th>
                     <th data-sortable="false">Ver Pedido</th>
-                    <th>Motoboy</th>
                 </tr>
             </thead>
             <?php
@@ -194,10 +193,6 @@ $a = urldecode($a);
                                         });
                                     </script>
                                 </td>
-                                <td>
-                                    <!--<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Enviar ao Motoboy</button>-->
-                                    <button onclick="listMotoboys(<?= $id; ?>);" class="btn btn-success btn-xs">Enviar ao Motoboy</button>
-                                </td>
                             </tr>
                     <?php
                         endforeach;
@@ -335,10 +330,6 @@ $a = urldecode($a);
                                         });
                                     </script>
                                 </td>
-                                <td>
-                                    <!--<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Enviar ao Motoboy</button>-->
-                                    <button onclick="listMotoboys(<?= $id; ?>);" class="btn btn-success btn-xs">Enviar ao Motoboy</button>
-                                </td>
                             </tr>
                         <?php
                         endforeach;
@@ -380,99 +371,6 @@ $a = urldecode($a);
 
 </div>
 <div id="chamadanotificacao"></div>
-
-<!-- The Modal -->
-<span id="modal_listMotoboys_open" data-toggle="modal" data-target="#modal_listMotoboys"></span>
-<div class="modal" style="margin-top: 80px;" id="modal_listMotoboys">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Motoboys</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <span>Envie o pedido diretamente no whatsapp do motoboy.</span></br></br>
-                <!-- Function Modal -->
-                <script>
-
-                </script>
-                <div id="content_listMotoboys">
-                    <table id="table_listMotoboys" class="table table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nome do Entregador</th>
-                                <th>Número de Telefone</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table_tbody_listMotoboys">
-                            <tr>
-                                <td>1</td>
-                                <td>Ronaldo Vasquez</td>
-                                <td>(15) 12345-6789</td>
-                                <td>
-                                    <button class="btn btn-primary btn-xs">Enviar Pedido</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <script>
-                listMotoboys();
-            </script>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<script>
-    function listMotoboys(id_ped) {
-        <?php $lerbanco->ExeRead('ws_pedidos', "WHERE user_id = :userid", "userid={$userlogin['user_id']}"); ?>
-        var listPedidos = <?= json_encode($lerbanco->getResult()); ?>;
-
-        <?php $lerbanco->ExeRead('ws_motoboys', "WHERE user_id = :userid", "userid={$userlogin['user_id']}"); ?>
-        var data = <?= json_encode($lerbanco->getResult()); ?>;
-
-        var exists = false;
-        if (listPedidos.length > 0) {
-            for (i = 0; i < listPedidos.length; i++) {
-                if (listPedidos[i]['id'] == id_ped) {
-                    exists = i;
-                    break;
-                }
-            }
-        }
-
-        if (exists === false) {
-            alert("Pedido inválido no sistema");
-            return;
-        }
-
-        var str = "";
-        for (i = 0; i < data.length; i++) {
-            var name = data[i]['deliveryman_name'];
-            var phone_number = data[i]['deliveryman_phone_number'];
-            var phone_number_nopont = phone_number.replace("(", "");
-            var phone_number_nopont = phone_number_nopont.replace(")", "");
-            var phone_number_nopont = phone_number_nopont.replace(" ", "");
-            var phone_number_nopont = phone_number_nopont.replace("-", "");
-            var text = "Pedido: " + listPedidos[exists]['codigo_pedido'] + "%0ANome do Cliente: " + listPedidos[exists]['nome'] + "%0ATelefone: " + listPedidos[exists]['telefone'] + "%0AEndereço: " + listPedidos[exists]['rua'] + ", nº " + listPedidos[exists]['unidade'] + "%0A" + listPedidos[exists]['bairro'] + "%0A" + listPedidos[exists]['cidade'] + "-" + listPedidos[exists]['uf'] + "%0A%0AForma de Pagamento: " + listPedidos[exists]['forma_pagamento'] + "%0AValor Total: " + listPedidos[exists]['total'] + "%0ATroco: " + listPedidos[exists]['valor_troco'];
-            var str = str + "<tr><td>" + (i + 1) + "</td><td>" + name + "</td><td>" + phone_number + "</td><td><a target=\"_blank\" href=\"https://api.whatsapp.com/send?phone=55" + phone_number_nopont + "&text=" + text + "\"><button class=\"btn btn-primary btn-xs\">Enviar Pedido</button></a></td></tr>";
-        }
-        $("#table_tbody_listMotoboys").html(str);
-        $("#modal_listMotoboys_open").click();
-    }
-</script>
 
 
 <div id="att"></div>

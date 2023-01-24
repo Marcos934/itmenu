@@ -10,6 +10,11 @@ endif;
 
 $logoff = filter_input(INPUT_GET, 'logoff', FILTER_VALIDATE_BOOLEAN);
 
+// IT RETURNS TO THE MAIN PAGE IF YOU TRY TO ACCESS A URL WITH DISABLED FEATURE
+if (CF_MOTOBOY == FALSE){
+	header("Location: {$site}{$Url[0]}");
+}
+
 if(!empty($logoff) && $logoff == true):
 	$updateacesso = new Update;
 	$dataEhora    = date('d/m/Y H:i');
