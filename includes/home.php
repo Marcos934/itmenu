@@ -57,7 +57,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 	#footer
 	{
 		background-color:#d9534f;
-		position:fixed;
+		position:relative;
 		bottom:0px;
 		left:0px;
 		right:0px;
@@ -70,6 +70,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 		font-weight: bold;
 		cursor: pointer;
 		padding-top: 15px;
+		border-radius: 5px;
 
 	}
 	#footer:hover{
@@ -79,7 +80,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 	#footerr
 	{
 		background-color:#ff6247;
-		position:fixed;
+		position:relative;
 		bottom:0px;
 		left:0px;
 		right:0px;
@@ -92,6 +93,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 		font-weight: bold;
 		cursor: pointer;
 		padding-top: 15px;
+		border-radius: 5px;
 
 	}
 	#footerr:hover{
@@ -754,40 +756,42 @@ endif;
 <input type="hidden" name="userid" value="<?=$getu;?>">
 <input type="hidden" name="nome_item" value="<?=$nome_do_item;?>">
 <input type="hidden" name="nomeloja" value="<?=$Url[0];?>">
-<br />
 
 
 </div>
 <div class="modal-footer">
-	<center><button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar janela</button></center>
-	<br>
-	<br>
-	<br>
-</div>
-</div>
-
-</div>
-
-</div>
 <?php
-if(!empty($disponivel) && $disponivel == 1):
-	?>	
-	<a class="adicionarItemPedido_<?=$ido_DoItem;?>">
-		<div id="footer">
-			<b><?=$texto['msg_purchase'];?></b>
+	if(!empty($disponivel) && $disponivel == 1):
+		?>	
+		<a class="adicionarItemPedido_<?=$ido_DoItem;?>">
+			<div id="footer">
+				<b><?=$texto['msg_purchase'];?></b>
+			</div>
+		</a>	
+		<?php
+	else:
+		?>	
+		<div id="footerr">
+			<b><?=$texto['msg_indisponivel'];?></b>
 		</div>
-	</a>
-
 	
-	<?php
-else:
-	?>	
-	<div id="footerr">
-		<b><?=$texto['msg_indisponivel'];?></b>
-	</div>
-	<?php
+<?php
 endif;
 ?>
+
+<div class="btn-close-modal-item">
+	<center><button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar janela</button></center>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
 
 <script type="text/javascript">
 	$(document).ready(function(){
