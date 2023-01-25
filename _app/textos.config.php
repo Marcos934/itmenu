@@ -110,7 +110,7 @@ $texto['msg_cardapio']            = '<i class="fa fa-cart-arrow-down" aria-hidde
 $texto['msg_itemlop']             = 'Item';
 $texto['msg_precolop']            = 'Preço';
 $texto['msg_pedirlop']            = 'Pedir';
-$texto['msg_delivery']            = 'No endereço - (Delivery)';
+$texto['msg_delivery']            = 'Delivery';
 $texto['msg_Buscar_pedido']       = 'Retirar no Balcão';
 $texto['msg_pedido_mesa']         = 'Entregar na Mesa';
 $texto['msg_tamanho']             = 'Opção';
