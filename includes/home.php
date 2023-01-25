@@ -161,10 +161,8 @@ $diadehoje   = $diasemana[$diasemana_numero];
 	</div>
 </div>
 <!-- End col-md-3 -->
-<div class="col-md-6" <?=($detect->isMobile() ? "style=\"padding-left: 2px;padding-right: 2px;\"" : "");?>>
+<div class="col-md-6" <?=($detect->isMobile() ? "style=\"padding-left: 10px;padding-right: 10px;\"" : "");?>>
 
-
-	
 
 	<?php
 		$lerbanco->ExeRead('banner_promocional', "WHERE user_id = :useridd AND confirma_banner = :confirmb", "useridd={$getu}&confirmb=1");
@@ -181,7 +179,12 @@ $diadehoje   = $diasemana[$diasemana_numero];
 		?>
 	<div class="box_style_2" id="main_menu">
 
-		<center><h2 class="inner"><!--<i class="icon-food-1"></i></i><i class="icon-fast-food"></i><i class="icon-food"></i> --> <?=$texto['msg_cardapio'];?> <!--<i class="icon-food"></i><i class="icon-fast-food"></i><i class="icon-food-1"></i></i>--></h2></center>
+		
+		<h2 class="inner">
+		<!--<i class="icon-food-1"></i></i><i class="icon-fast-food"></i><i class="icon-food"></i> -->
+			<?=$texto['msg_cardapio'];?> 
+			<!--<i class="icon-food"></i><i class="icon-fast-food"></i><i class="icon-food-1"></i></i>-->
+		</h2>
 		
 		<?php
 		$lerbanco->ExeRead('ws_cat', "WHERE user_id = :useridd ORDER BY id", "useridd={$getu}");
@@ -225,7 +228,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 							</div>
 							<div id="<?=Check::Name($nome_cat);?>" class="panel-collapse collapse">
 								<div class="panel-body">
-									<?=($desc_cat != 'null' ? $desc_cat.'<br /><br />' : '');?>
+									<?=($desc_cat != 'null' ?'<p class="panel-title-dynamic">'.$desc_cat.'</p>' : '');?>
 									<?php
 									$lerbanco->ExeRead('ws_itens', "WHERE user_id = :useridr AND id_cat = :nnn AND disponivel=1 ORDER BY posicao ASC", "useridr={$getu}&nnn={$id}");
 									if(!$lerbanco->getResult()):
@@ -276,11 +279,11 @@ $diadehoje   = $diasemana[$diasemana_numero];
 																<span class="card-product-price"><?php
 																$lerbanco->ExeRead("ws_relacao_tamanho", "WHERE id_user = :useriid AND id_item = :idiitem", "useriid={$getu}&idiitem={$ido_DoItem}");
 																if(!$lerbanco->getResult()):
-																	echo "<span>R$ ".Check::real($preco_item)."</span>";
+																	echo "<p>R$ ".Check::real($preco_item)."</p>";
 																else:
 																	$total = $lerbanco->getRowCount();
 
-																	echo "<span>Ver Valores<span>";
+																	echo "<p>Ver Valores<p>";
 																endif;
 
 

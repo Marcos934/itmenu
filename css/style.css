@@ -64,18 +64,20 @@ h3 .slide_typo strong {font-family:"Helvetica Neue", Helvetica, Arial, sans-seri
 .box_style_2 h2.inner {
 	background-color:#000000; 
 	color:#fff; 
-	margin:-25px -25px 25px -25px; 
-	padding:12px 15px; 
+	margin: -22px -6px 24px -5px; 
+	padding: 12px 15px; 
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; 
-	font-size:22px; 
-	font-weight:600;
+	font-size: 22px; 
+	font-weight: 600;
 	-webkit-border-top-left-radius: 3px;
 	-webkit-border-top-right-radius: 3px;
 	-moz-border-radius-topleft: 3px;
 	-moz-border-radius-topright: 3px;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
+	text-align: center;
 }
+
 
 .main_title{ text-align:center; margin-bottom:45px; }
 .main_title h2{ font-size:46px; letter-spacing:-1px; font-weight:300; margin-bottom:0;}
@@ -906,11 +908,11 @@ a.strip_list:hover h3{
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	border: 1px solid #ededed;
-	margin-bottom:25px;
-	padding:25px;
+	margin-bottom: 25px;
+	padding: 25px;
 }
 .box_style_2#main_menu, .box_style_2.info{
-	padding-bottom:10px;
+	padding: 20px 5px 15px 5px;
 }
 .box_style_2#help{
 	text-align:center;
@@ -1811,11 +1813,16 @@ footer .form-group {
 	box-shadow:none;
 	border-color:#ededed;
 }
+.panel-title-dynamic {
+	text-align: center;
+    padding: 15px 10px 15px 0px;
+}
+
 .panel-title a {display:block; color:#444;}
 .panel-default > .panel-heading {
-	background-color: #f9f9f9;
-	padding:20px;
-	border-bottom:1px solid #ddd;
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid rgb(128,128,128, 0.3);
 }
 .panel-heading {
 	border-top-left-radius: 3px;
@@ -1824,13 +1831,11 @@ footer .form-group {
 .panel-group .panel {
 	border-radius: 3px;
 }
+
 .panel-body {
 	padding: 20px;
 	line-height:1.6 !important;
 }
-
-
-
 
 
 .panel-title a .indicator{
@@ -2497,9 +2502,13 @@ a.btn_filter#search_bt:before{
 }
 
 .card-product-price {
-	float: right; 
-	color: #50a773;
-	cursor: pointer;
+    color: #50a773;
+    cursor: pointer;
+	float: left;
+	margin-left: 10px;
+	font-size: 16px;
+    line-height: 1.25rem;
+    font-weight: 400;
 }
 
 .card-product-title {
@@ -2535,10 +2544,7 @@ a.btn_filter#search_bt:before{
 	border-width: 7px;
 	margin-left: -7px;
 }
-.dropdown-menupop{
-	margin-top:10px;
-	
-}
+
 .dropdown-menupop h5{
 	border-bottom:1px solid #ededed;
 	padding-bottom:5px;
@@ -2548,12 +2554,9 @@ a.btn_filter#search_bt:before{
 .dropdown-menupop label{
 	font-weight:500;
 	color:#555 !important;
-}
-.dropdown-menupop label{
-	font-weight:500;
-	color:#555 !important;
 	width:100%;
 }
+
 .dropdown-menupop label input{
 	margin-right:5px;
 }
@@ -2579,9 +2582,10 @@ a.btn_filter#search_bt:before{
 
 /*Drop-down menu options position */
 .dropdown-menupop{
-	border-top:0; 
+	border-top: 0px; 
 	border-bottom: 2px solid #8560a8;
 	margin-bottom: 10px;
+	margin-top:10px;
 }
 .dropdown-menupop:before{
 	top: 100%;
@@ -2842,20 +2846,20 @@ ul.plan-features {
 	font-size: 15px;
 	padding: 0;
 }
+
 @media all and (max-width: 767px) {
 
 	#main_menu .panel-body {
-		padding: 12px;
+		padding: 5px;
 	}
 
 	#main_menu .table.cart-list td{
 		vertical-align: middle;
-		padding: 5px 0px;
+		padding: 10px 0px 10px 0px;
 		position: relative;
 	}
 
 	.box_style_2, #cart_box{
-		padding: 10px;
+		padding: 15px;
 	}
-
 }
