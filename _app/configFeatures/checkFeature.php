@@ -6,4 +6,4 @@
 
 
 define('CF_MOTOBOY', FALSE);
-
+define('CF_NO_SOUND_EFFECT', FALSE);
