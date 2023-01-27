@@ -79,6 +79,24 @@ h3 .slide_typo strong {font-family:"Helvetica Neue", Helvetica, Arial, sans-seri
 }
 
 
+.store-open {
+	background-color:#86c953;
+	color:#ffffff;
+	font-size: 15px;
+    padding: 5px 20px;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.store-closed {
+	background-color:red;
+	color: #ffffff;
+	font-size: 15px;
+    padding: 5px 20px;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
 .main_title{ text-align:center; margin-bottom:45px; }
 .main_title h2{ font-size:46px; letter-spacing:-1px; font-weight:300; margin-bottom:0;}
 .main_title p{ font-size:18px; color:#555; line-height:1.2; margin-bottom:30px; font-weight:300;}
@@ -312,8 +330,8 @@ header.sticky{
 	text-align:center;
 	display: table;
 	width:100%;
-	height:470px;
-	background: rgba(0,0,0,.7);
+	height:400px;
+	background: rgba(0,0,0,.5);
 }
 #home #subheader{
 	height:550px;
@@ -326,6 +344,12 @@ header.sticky{
 }
 #subheader a:hover{
 	text-decoration:underline;
+}
+
+.btn-close-modal-item {
+	display: block;
+	position: relative;
+	padding-top: 15px;
 }
 
 /* Footer  */
@@ -990,15 +1014,15 @@ ul#cat_nav li a{
 	color:#555;
 }
 ul#cat_nav li a span{
-	font-size:11px;
+	font-size: 13px;
 	color:#999;
 }
 ul#cat_nav li a:after{
 	font-family: "fontello";
 	content: "\e89b";
 	position:absolute;
-	right:15px;
-	top:15px;
+	right: 10px;
+	top: 15px;
 }
 ul#cat_nav li:last-child{
 	border-bottom: 0;
@@ -1021,8 +1045,10 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a.active{
 	border-bottom-left-radius: 3px;
 }
 ul#cat_nav li a{
-	display:block;
-	padding:15px 10px;
+	font-size: 12px;
+    display: block;
+    padding: 10px 0px 15px 5px;
+    font-weight: 600;
 }
 ul#cat_nav li a:hover, ul#cat_nav li a.active{
 	background:#f9f9f9;
@@ -1355,7 +1381,7 @@ ul.opening_list li span{
 
 /* 3.2 Parallax bg */
 .parallax-window {
-	min-height: 470px;
+	min-height: 400px;
 	background:transparent;
 	position:relative;
 }
@@ -2555,6 +2581,7 @@ a.btn_filter#search_bt:before{
 	font-weight:500;
 	color:#555 !important;
 	width:100%;
+	padding: 5px 0px 0px 0px;
 }
 
 .dropdown-menupop label input{
@@ -2835,9 +2862,15 @@ ul.plan-features {
 	border-left: 0;
 }
 
+.category-product {
+	background-color: rgba(221, 221, 221, 0.5);
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 .item-header-value {
 	color: #4eb93e;
-	font-size: 30px;
+	font-size: 20px;
 	padding: 0;
 }
 

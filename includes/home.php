@@ -302,7 +302,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 																					<div class="modal-body">
 																						<div class="dropdown-menupop" style="border-bottom: none;">
 																							<a data-dismiss="modal" style="float: right;cursor: pointer;"id="fecharmodallogin" class="close-link"><i class="icon_close_alt2"></i></a>										
-																							<center><b><?=$nome_item;?> <?php
+																							<center><h4><?=$nome_item;?> <?php
 																							$lerbanco->ExeRead("ws_relacao_tamanho", "WHERE id_user = :useriid AND id_item = :idiitem", "useriid={$getu}&idiitem={$ido_DoItem}");
 																							if(!$lerbanco->getResult()):
 																								echo "<br /><b class='item-header-value'>R$ ".Check::real($preco_item)."</b>";
@@ -311,7 +311,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 																							endif;
 
 
-																							?></b></center>
+																							?></h4></center>
 																							<center>
 																								<?php
 																								if (!empty($img_item) && $img_item != "null" && file_exists("uploads/{$img_item}") && !is_dir("uploads/{$img_item}")):										
@@ -424,7 +424,6 @@ if($lerbanco->getResult()):
 
 	$toaditionais = (!empty($numeroadicionais) && $numeroadicionais != 0 ? "Escolha ".$numeroadicionais." opção" : "");
 	//echo ($mostrarnomemeioameio == "true" ? "<h5 class=\"totaladitionais\">Adicionais grátis:".$toaditionais."</h5>" : "");
-	echo ($mostrarnomemeioameio == "true" ? "<h5 class=\"totaladitionais\">Adicionais grátis:</h5>" : "");
     
     echo "<div id=\"cf_group_adicionais{$ido_DoItem}\" class=\"\">"; // AQUI E A DIV QUE CONFIGURA A QUANTIDADE QUE PODE SER 
 	/*foreach($lerbanco->getResult() as $extractditionais):
@@ -449,24 +448,24 @@ if($lerbanco->getResult()):
 	$lerbanco->ExeRead("ws_adicionais_cat", "WHERE user_id = :userid AND id_itens = :id_itens AND pay=0", "userid={$getu}&id_itens={$ido_DoItem}");
 	$addt = $lerbanco->getResult();
     for ($i = 0; $i < count($addt); $i++) {
-	    ?>
+		$lerbanco->ExeRead("ws_adicionais_itens_gratis", "WHERE user_id = :userid AND status_adicional_gratis = :statusadicional AND id_adicionais_cat = :id_adicionais_cat", "userid={$getu}&statusadicional={$condum}&id_adicionais_cat={$addt[$i]['id']}");
+	    $extractAdicionais = $lerbanco->getResult();
+		?>
 	    <div style="" id="div_Cat_<?=$addt[$i]['id_cat'];?>_IdItem_<?=$addt[$i]['id_itens'];?>_addtCat_<?=$addt[$i]['id'];?>" data-amount="<?=($addt[$i]['amount'] == -1 ? 1000 : $addt[$i]['amount']);?>">
-    	    <div class="row bg-info" style="padding-top: 5px; padding-bottom: 5px;">
+    	    <?= !empty($extractAdicionais) ? '<div class="row category-product" style="padding-top: 5px; padding-bottom: 5px;">' :
+			 '<div class="row bg-info" style="padding-top: 5px; padding-bottom: 5px;display:none;">'?>
     	        <div class="col-sm-6">
-    	            <?=($addt[$i]['img_cat'] != "" ? '<img src="'.$site.'img/'.$addt[$i]['img_cat'].'" style="width: 20px;" />' : "");?><strong> <?=$addt[$i]['name_adicionais_cat'];?></strong>
-    	        </div>
-    	        <div class="col-sm-6 text-right">
-    	            <span> <?=($addt[$i]['amount'] != -1 ? "Escolha até {$addt[$i]['amount']} opções" : "");?></span>
-    	        </div>
+    	            <?=($addt[$i]['img_cat'] != "" && SHOW_CART_IMG ? '<img src="'.$site.'img/'.$addt[$i]['img_cat'].'" style="width: 20px;" />' : "");?><strong> <?=$addt[$i]['name_adicionais_cat'];?></strong>
+					<div>
+    	            	<span> <?=($addt[$i]['amount'] != -1 ? "Escolha até {$addt[$i]['amount']} opções" : "");?></span>
+    	        	</div>
+				</div>
     	    </div>
     	    <?
-    	    $lerbanco->ExeRead("ws_adicionais_itens_gratis", "WHERE user_id = :userid AND status_adicional_gratis = :statusadicional AND id_adicionais_cat = :id_adicionais_cat", "userid={$getu}&statusadicional={$condum}&id_adicionais_cat={$addt[$i]['id']}");
-    	    foreach($lerbanco->getResult() as $extractditionais):
-        		extract($extractditionais);
-        
-        		$catArray = explode(', ', $categorias_adicional_gratis);
+    	    foreach($extractAdicionais as $adicionais):
         		$toralCat = count($catArray);
-        
+				extract($adicionais);
+        		$catArray = explode(', ', $categorias_adicional_gratis);
             		for ($j=0; $j < $toralCat; $j++) {		
             
             			if($catArray[$j] == $iddacategoria):
@@ -559,9 +558,16 @@ if($lerbanco->getResult()):
 
 	$toaditionaisPagos = (!empty($numeroadicionaisPagos) && $numeroadicionaisPagos != 0 ? "Escolha ".$numeroadicionaisPagos." opção" : "");
 	//echo ($mostrarnomemeioameioDois == "true" ? "<h5 class=\"totaladitionais2\">Adicionais pagos: ".$toaditionaisPagos."</h5>" : "");
-	echo ($mostrarnomemeioameioDois == "true" ? "<h5 class=\"totaladitionais2\">Adicionais pagos: </h5>" : "");
+	
+	if (SHOW_ADITIONALS_QTY):
+		echo ($mostrarnomemeioameioDois == "true" ? "<h5 class=\"totaladitionais2\">Adicionais pagos: </h5>" : "");
 
+		echo "<div id=\"cf_group_adicionais_pagos{$ido_DoItem}\" class=\"\">"; // AQUI E A DIV QUE CONFIGURA A QUANTIDADE QUE PODE SER 
 	echo "<div id=\"cf_group_adicionais_pagos{$ido_DoItem}\" class=\"\">"; // AQUI E A DIV QUE CONFIGURA A QUANTIDADE QUE PODE SER 
+		echo "<div id=\"cf_group_adicionais_pagos{$ido_DoItem}\" class=\"\">"; // AQUI E A DIV QUE CONFIGURA A QUANTIDADE QUE PODE SER 
+	echo "<div id=\"cf_group_adicionais_pagos{$ido_DoItem}\" class=\"\">"; // AQUI E A DIV QUE CONFIGURA A QUANTIDADE QUE PODE SER 
+		echo "<div id=\"cf_group_adicionais_pagos{$ido_DoItem}\" class=\"\">"; // AQUI E A DIV QUE CONFIGURA A QUANTIDADE QUE PODE SER 
+	endif;
 	/*foreach($lerbanco->getResult() as $extractditionais):
 		extract($extractditionais);
 
@@ -586,12 +592,13 @@ if($lerbanco->getResult()):
     for ($i = 0; $i < count($addtp); $i++) {
 	    ?>
 	    <div style="" id="div_Cat_<?=$addtp[$i]['id_cat'];?>_IdItem_<?=$addtp[$i]['id_itens'];?>_addtCat_<?=$addtp[$i]['id'];?>_p" data-amount="<?=($addtp[$i]['amount'] == -1 ? 1000 : $addtp[$i]['amount']);?>">
-    	    <div class="row bg-info" style="padding-top: 5px; padding-bottom: 5px;">
+		<?= !empty($addtp) ? '<div class="row category-product" style="padding-top: 5px; padding-bottom: 5px;">' :
+		 '<div class="row bg-info" style="padding-top: 5px; padding-bottom: 5px; display:none;">'?>
     	        <div class="col-sm-6">
-    	            <?=($addtp[$i]['img_cat'] != "" ? '<img src="'.$site.'img/'.$addtp[$i]['img_cat'].'" style="width: 20px;" />' : "");?><strong> <?=$addtp[$i]['name_adicionais_cat'];?></strong>
-    	        </div>
-    	        <div class="col-sm-6 text-right">
-    	            <span> <?=($addtp[$i]['amount'] != -1 ? "Escolha até {$addtp[$i]['amount']} opções" : "");?></span>
+    	            <?=($addtp[$i]['img_cat'] != "" && SHOW_CART_IMG ? '<img src="'.$site.'img/'.$addtp[$i]['img_cat'].'" style="width: 20px;" />' : "");?><strong> <?=$addtp[$i]['name_adicionais_cat'];?></strong>
+    	            <div>
+						<span> <?=($addtp[$i]['amount'] != -1 ? "Escolha até {$addtp[$i]['amount']} opções" : "");?></span>
+					</div>
     	        </div>
     	    </div>
     	    <?
@@ -914,7 +921,7 @@ endif;
 				</table>
 				<?php	
 
-				echo "<button type=\"submit\" id=\"limparcarrinho\" class=\"btn btn-danger btn-block\">{$texto['msg_limpar_pedido']}</button>";	
+				echo "<button type=\"submit\" id=\"limparcarrinho\" class=\"btn btn-danger btn-block\">{$texto['msg_limpar_carrinho']}</button>";	
 			endif;
 			?>
 			<script type="text/javascript">

@@ -265,7 +265,7 @@ else:
 			#img-head-loja{
 				background-image:url(<?=(!empty($img_header) ? $site."uploads/".$img_header : '');?>);
 				background-attachment:fixed;
-				background-size:100%;
+				background-size: 100%;
 				background-repeat:no-repeat;
 				background-color:#000;
 			}
@@ -776,10 +776,10 @@ $store_hours = new StoreHours($hours, $exceptions);
 
 
 					 // Display open / closed menssagem
-if($store_hours->is_open()) {
-	echo "<b style=\"border: 2px solid #86c953;background-color:#86c953;color:#ffffff;font-size:15px;font-weight:bold;border-radius:5px;\">{$texto['msg_aberto']}</b>";
+if(!$store_hours->is_open()) {
+	echo "<b class='store-open'>{$texto['msg_aberto']}</b>";
 } else {
-	echo "<b style=\"border: 2px solid red;padding:2px;background-color:red;color: #ffffff;font-size:15px;font-weight:bold;border-radius:5px;\">{$texto['msg_fechado']}</b>";
+	echo "<b class='store-closed'>{$texto['msg_fechado']}</b>";
 }?>
 <br />
 <br />
@@ -788,7 +788,7 @@ if($store_hours->is_open()) {
 
 &nbsp;&nbsp;
 
-<a data-toggle="modal" data-target=".modal-horarios" style="color: #ffffff;font-size: 14px;cursor: pointer; text-decoration: none;"><i class="icon_pin"></i> Ver Endereços <i class="fa fa-chevron-down arrow-down"></i></a>
+<a data-toggle="modal" data-target=".modal-horarios" style="color: #ffffff;font-size: 14px;cursor: pointer; text-decoration: none;"><i class="icon_pin"></i> Ver Endereço(s) <i class="fa fa-chevron-down arrow-down"></i></a>
 
 </div><!-- End sub_content -->
 </div><!-- End subheader -->
@@ -975,9 +975,6 @@ endif;
 		<div class="modal-content">
 			<center><h3><?=$texto['msg_btn_horarios'];?></h3></center>
 			<?php
-			
-
-			
 
 	//-----------------------------------------------------------------------------------------------------------------------------
 			if(!empty($config_segunda) && $config_segunda == "true" && !empty($config_segundaa) && $config_segundaa == "true"):

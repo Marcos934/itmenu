@@ -118,7 +118,7 @@ $cart = new Cart([
 				</tbody>
 			</table>
 			<?php	
-			echo "<button type=\"submit\" id=\"limparcarrinho\" class=\"btn btn-danger btn-block\">{$texto['msg_limpar_pedido']}</button>";	
+			echo "<button type=\"submit\" id=\"limparcarrinho\" class=\"btn btn-danger btn-block\">{$texto['msg_limpar_carrinho']}</button>";	
 		endif;
 		?>
 		<script type="text/javascript">
