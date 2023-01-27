@@ -1,6 +1,22 @@
 <?php
 
 
+function soundEffectManager($soundFXFile)
+{
+    $soundFX = '';
+    if (CF_NO_SOUND_EFFECT):
+        $soundFX = "var sound = new Howl({
+            src: ['{$soundFXFile}'],
+            volume: 1.0,
+            autoplay: true,
+            });
+            sound.play();";
+    else:
+        $soundFX = '';
+    endif;
+    return $soundFX;
+}
+
 function limitarTexto($texto, $limite, $quebrar = true){
   $contador = strlen($texto);
   if($contador <= $limite):
