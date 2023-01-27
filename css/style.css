@@ -2504,7 +2504,7 @@ a.btn_filter#search_bt:before{
 .card-product-price {
     color: #50a773;
     cursor: pointer;
-	float: left;
+	float: right;
 	margin-left: 10px;
 	font-size: 16px;
     line-height: 1.25rem;

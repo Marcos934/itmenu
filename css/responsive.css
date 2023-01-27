@@ -123,6 +123,9 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
+  .card-product-price {
+    float: left;
+  }
   .parallax-window#home {
     height: 350px;
     min-height: 305px;
