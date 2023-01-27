@@ -423,6 +423,12 @@
   .plan-tall {
     margin-right: 0;
   }
+
+  /* Remover espaço em brando lateral no mobile */
+  html, body{
+    overflow-x: hidden !important;
+  }
+
 }
 
 /* Extra Small Devices, Phones */
