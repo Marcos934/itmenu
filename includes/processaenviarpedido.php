@@ -106,7 +106,18 @@ if(isset($get_dados_pedido['enviar_pedido']) && $get_dados_pedido['enviar_pedido
 	$get_dados_pedido['complemento'] = (empty($get_dados_pedido['complemento']) ? '*Não informado*' : $get_dados_pedido['complemento']);
 	$get_dados_pedido['observacao'] = (empty($get_dados_pedido['observacao']) ? '*Não informado*' : $get_dados_pedido['observacao']);
 
-	$get_dados_pedido['telefone']    = preg_replace("/[^0-9]/", "", $get_dados_pedido['telefone']);
+
+	if (!$get_dados_pedido['mesa']) {
+		$get_dados_pedido['telefone']   = preg_replace("/[^0-9]/", "", $get_dados_pedido['telefone']);
+	} else {
+		$get_dados_pedido['telefone'] = '99000000000';
+	}
+
+
+	if(!$get_dados_pedido['mesa'] && !$get_dados_pedido['pessoas']) {
+		$get_dados_pedido['pessoas'] = 1;
+	}
+
 
 	if(in_array('', $get_dados_pedido) || in_array('null', $get_dados_pedido)):
 		echo "<script>

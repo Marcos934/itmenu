@@ -87,11 +87,15 @@ function tirarAcentos($string){
 						</div>	
 						<div class="box_style_2" id="order_process">				
 							<div style="text-transform: uppercase;font-weight: 700;font-size: 13px;color: #343a40;letter-spacing: 1px;"><i class="fa fa-caret-right"></i> <?=$texto['msg_msg_dadosabaixo'];?></div>	
-							<br />				
-							<div class="form-group">
-								<label for="telefone"><span style="color: red;">* </span><?=$texto['msg_seu_tell'];?></label>
-								<input required type="tel" id="telefone" name="telefone" class="form-control" placeholder="(99) 99999-9999" data-mask="(00) 00000-0000" maxlength="15">
-							</div>	
+							<br />		
+							
+							<?php if($_POST['opcao_delivery'] != 'false2'):?>	
+								<div class="form-group">							
+									<label for="telefone"><span style="color: red;">* </span><?=$texto['msg_seu_tell'];?></label>
+									<input required type="tel" id="telefone" name="telefone" class="form-control" placeholder="(99) 99999-9999" data-mask="(00) 00000-0000" maxlength="15">
+								</div>								
+							<?php endif; ?>
+
 							<div class="form-group">
 								<label for="nome"><span style="color: red;">* </span><?=$texto['msg_seu_nome'];?></label>
 								<input required type="text" class="form-control" id="nome" name="nome" placeholder="<?=$texto['msg_seu_nome'];?>">
@@ -107,8 +111,8 @@ function tirarAcentos($string){
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group">
-											<label class="form-control-label"><span style="color: red;">*</span> <?=$texto['msg_msg_qtdpessoas'];?></label>
-											<input type="number" name="pessoas" id="pessoas" class="form-control numero" maxlength="2" required>
+											<label class="form-control-label"> <?=$texto['msg_msg_qtdpessoas'];?></label>
+											<input type="number" value="1" name="pessoas" id="pessoas" class="form-control numero" maxlength="2" required>
 										</div>
 									</div>
 								</div> 
