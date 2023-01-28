@@ -187,7 +187,7 @@ $texto['msg_msg_Nmesa']            = 'Nº da Mesa:';
 $texto['msg_msg_qtdpessoas']       = 'Quantidade de Pessoas:';
 $texto['msg_msg_obsmesa']          = 'Observações:';
 $texto['msg_msg_enviarzap']        = 'Agilize o seu pedido enviando para o whatsapp do estabelecimento. "Você precisa confirmar o envio no APP."';
-
+$texto['msg_carrinho_aberto']       = 'Manter carrinho aberto - (Sem necessidade de preencher dados novamente)';
 
 
 $texto['msg_detaches_pedidos']    = "Escolha seu pedido abaixo selecionando e alterando as quantidades, e em \"{$texto['msg_seu_pedido']}\" acompanhe como está ficando, depois de pronto, clique em \"{$texto['msg_confirmar_puschase']}\", informe seu endereço e a forma de pagamento, depois clique em \"{$texto['msg_pedir_agora']}\", será enviado tudo pelo WhatsApp automaticamente!";

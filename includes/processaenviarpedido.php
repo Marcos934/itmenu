@@ -102,6 +102,21 @@ else:
 	$get_dados_pedido['confirm_whatsapp'] = 'false';
 endif;
 
+/* tratamento de carrinho aberto, pender para coluno no bd */
+// if (!empty($get_dados_pedido['carrinho_aberto']) && $get_dados_pedido['carrinho_aberto'] == 'true'):
+// 	$get_dados_pedido['carrinho_aberto'] = $get_dados_pedido['carrinho_aberto'];
+// else:
+// 	$get_dados_pedido['carrinho_aberto'] = 'false';
+// endif;
+
+/* remoção da parte de carrinho aberto, pender para coluno no bd */
+unset($get_dados_pedido["carrinho_aberto"]);
+
+
+/* FIM CARRINHO ABERTO*/
+
+
+
 if (isset($get_dados_pedido['enviar_pedido']) && $get_dados_pedido['enviar_pedido'] == 'enviar_agora'):
 	unset($get_dados_pedido['enviar_pedido']);
 

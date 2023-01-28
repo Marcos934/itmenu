@@ -273,6 +273,12 @@ function tirarAcentos($string){
 												<label for="green"><strong><?=$texto['msg_msg_enviarzap'];?></strong></label>
 											</div>
 										</div>
+										<div class="form-group">								
+											<div class="icheck-material-grey">
+												<input type="checkbox" name="carrinho_aberto" value="true" id="carrinho_aberto" />
+												<label for="carrinho_aberto"><strong><?=$texto['msg_carrinho_aberto'];?></strong></label>
+											</div>
+										</div>
 									</div>
 									<input type="hidden" required name="valor_taxa" id="valor_taxa" value="<?=($bairrosstatus == 'false' && $_POST['opcao_delivery'] == 'true' ? $config_delivery : '0.00');?>">
 
@@ -467,6 +473,8 @@ function tirarAcentos($string){
 									<script type="text/javascript">
 										$(document).ready(function(){
 											$('.enviarpedido').click(function(){
+
+
 											    $('.enviarpedido').html('AGUARDE...');
 												$('.enviarpedido').prop('disabled', true);
 
@@ -475,10 +483,18 @@ function tirarAcentos($string){
 													method: "post",
 													data: $('#getDadosPedidoCompleto').serialize(),
 
-													success: function(data){				
+													success: function(data){		
 														$('#resultadoEnviarPedido').html(data);
 														$('.enviarpedido').html('<?=$texto['msg_pedir_agora'];?>');
 														$('.enviarpedido').prop('disabled', false);
+														if (document.querySelector("#carrinho_aberto").checked){
+															const dadosDaMesa = {
+																nome: document.querySelector("#nome").value,
+																nMesa: document.querySelector("#mesa").value,
+															}
+															localStorage.setItem('carrinho_aberto', JSON.stringify(dadosDaMesa))
+														}
+												
 													}
 												});
 
@@ -664,6 +680,7 @@ function tirarAcentos($string){
             //data.append('unidade',$("#unidade").val());
             //data.append('complemento',$("#complemento").val());
             data.append('confirm_whatsapp',$("#green").prop("checked"));
+			data.append('carrinho_aberto',$("#carrinho_aberto").prop("checked"));
             data.append('opcao_delivery',$("#opcao_delivery").val());
 	    }
 	    
@@ -888,6 +905,30 @@ function tirarAcentos($string){
             clearInterval(timer);
         }
     }
+
+
+
+	if(!!localStorage.getItem('carrinho_aberto')){
+		dadosDaMesa = JSON.parse(localStorage.getItem('carrinho_aberto'));
+		console.warn(dadosDaMesa)
+		document.querySelector("#nome").value = dadosDaMesa.nome
+		document.querySelector("#nome").readOnly = true
+
+		document.querySelector("#mesa").value = dadosDaMesa.nMesa;
+		document.querySelector("#mesa").readOnly = true
+
+
+		// checked carrinho aberto
+		document.querySelector("#carrinho_aberto").checked = true;
+		document.querySelector("#carrinho_aberto").disabled = true;
+
+	}
+
+
+	// Escuta evento de click no check box de manter carrinho aberto.
+	// document.querySelector("#btn_pedir_agora").addEventListener('click', function () {
+
+	// })
 
 </script>
 
