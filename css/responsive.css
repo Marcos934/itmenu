@@ -248,7 +248,7 @@
     display: block;
     position: relative;
     text-align: left;
-    padding-top: 2px;
+    text-indent: 4.5px
   }
 
   
@@ -270,15 +270,11 @@
     text-align: left;
     font-weight: 500;
     color: #555 !important;
-  }
-  .dropdown-menupop label {
-    text-align: left;
-    font-weight: 500;
-    color: #555 !important;
     width: 100%;
+    font-size: 15px;
   }
   .dropdown-menupop label input {
-    margin-right: 5px;
+    margin-right: 0px;
   }
   .dropdown-menupop label span {
     float: right !important;

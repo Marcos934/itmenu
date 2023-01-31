@@ -58,5 +58,5 @@ a.close-chat{position:absolute;top:5px;right:15px;color:#fff;font-size:30px}
 @keyframes showhide{from{transform:scale(.5);opacity:0}}
 @keyframes showchat{from{transform:scale(0);opacity:0}}
 @media screen and (max-width:480px){#whatsapp-chat{width:auto;left:5%;right:5%;font-size:80%}}
-.hide{display:none;animation-name:showhide;animation-duration:1.5s;transform:scale(1);opacity:1}
-.show{display:block;animation-name:showhide;animation-duration:1.5s;transform:scale(1);opacity:1}
+.hide{display:none;animation-name:showhide;transform:scale(1);opacity:1}
+.show{display:block;animation-name:showhide;transform:scale(1);opacity:1}

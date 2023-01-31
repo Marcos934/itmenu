@@ -296,7 +296,7 @@ $diadehoje   = $diasemana[$diasemana_numero];
 																	<div class="dropdown dropdown-options">
 
 																		<!-- Modal -->
-																		<div style="margin-top: 10px;" class="modal fade popuppedido" id="popuppedido_<?=$ido_DoItem;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																		<div class="modal fade popuppedido" id="popuppedido_<?=$ido_DoItem;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 																			<div class="modal-dialog">
 																				<div class="modal-content">													
 																					<div class="modal-body">
@@ -722,7 +722,7 @@ endif;
 
 <!--INICIO DA QUANTIDADE-->
 <h5><?=$texto['msg_quantidade'];?></h5>							
-<div class="input-group">
+<div class="input-group add_top_10">
 	<span class="input-group-btn">
 		<button style="height: 34px;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quantidade">
 			<span class="glyphicon glyphicon-minus"></span>
@@ -746,15 +746,17 @@ if(!$lerbanco->getResult()):
 else:
 	echo "
 	<h5>{$texto['msg_obsItem']}</h5>							
-	<div class=\"input-group\">
+	<div class=\"row input-group add_top_10\">
 	";
 	foreach ($lerbanco->getResult() as $addobservacoess):
 		extract($addobservacoess);
 
-		echo "<label>
-		<input type=\"checkbox\" name=\"observacao[]\" value=\"{$nome_observacao}\"> {$nome_observacao} 
-		<span></span>
-		</label>";
+		echo "
+		<div class='col-lg-12'>
+		<label>
+				<input type=\"checkbox\" name=\"observacao[]\" value=\"{$nome_observacao}\"> {$nome_observacao} 
+			</label>
+		</div>";
 		
 
 	endforeach;
@@ -791,7 +793,7 @@ endif;
 ?>
 
 <div class="btn-close-modal-item">
-	<center><button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar janela</button></center>
+	<center><button type="button" class="btn btn-block btn-lg btn-secondary btn-close-modal-back" data-dismiss="modal"><strong><?= $texto['mg_fechar_modal']; ?></strong></button></center>
 </div>
 
 </div>
@@ -945,12 +947,11 @@ endif;
 			</script>
 			<form data-toggle="validator" action="<?=$site.$Url[0].'/';?>carrinho" method="post">
 				<hr>
-				<div class="row" id="options_2" style="padding-left: 12px;">
-					<?php if(!empty($confirm_delivery) && $confirm_delivery == "true"): ?>
+				<div class="row checkbox-row" id="options_2">
+				<?php if(!empty($confirm_delivery) && $confirm_delivery == "true"): ?>
 						<div style="width: 100%;">
-							<div class="radio icheck-midnightblue">					
-								<input type="radio" required value='true' checked="" id="enterega" name="opcao_delivery" 
-								required />
+							<div class="radio icheck-midnightblue">
+								<input type="radio" required value='true' checked="" id="enterega" name="opcao_delivery"  />
 								<label for="enterega">
 									<span style="color:#444;">
 										<p style="font-size: 14px;"><?=$texto['msg_delivery'];?></p>
@@ -961,9 +962,8 @@ endif;
 					<?php endif; ?>
 					<?php if(!empty($confirm_balcao) && $confirm_balcao == "true"): ?>
 						<div style="width: 100%;">
-							<div class="radio icheck-midnightblue">					
-								<input type="radio" required value='false' id="buscar" name="opcao_delivery" 
-								required />
+							<div class="radio icheck-midnightblue">
+							<input type="radio" required value='false' id="buscar" name="opcao_delivery"/>
 								<label for="buscar">
 									<span style="color:#444;">
 										<p style="font-size: 14px;"><?=$texto['msg_Buscar_pedido'];?></p>
@@ -972,11 +972,10 @@ endif;
 							</div>
 						</div>
 					<?php endif; ?>
-					<?php if(!empty($confirm_mesa) && $confirm_mesa == "true"): ?>
+					<?php if (!empty($confirm_mesa) && $confirm_mesa == "true"): ?>
 						<div style="width: 100%;">
-							<div class="radio icheck-midnightblue">					
-								<input type="radio" required value='false2' id="mesa" name="opcao_delivery" 
-								required />
+							<div class="radio icheck-midnightblue">
+							<input type="checkbox" required value='false2' id="mesa" name="opcao_delivery" checked/>
 								<label for="mesa">
 									<span style="color:#444;">
 										<p style="font-size: 14px;"><?=$texto['msg_pedido_mesa'];?></p>
@@ -1194,7 +1193,7 @@ endif;
 			place:"left",
 			fadein: 500,
 			fadeout: 500,
-			opacity: 0.6,
+			opacity: 0.8,
 			marginX: 0,
 			marginY: 0,
 			zIndex: 9

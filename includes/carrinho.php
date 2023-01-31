@@ -106,13 +106,13 @@ function tirarAcentos($string){
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label class="form-control-label"><span style="color: red;">*</span> <?=$texto['msg_msg_Nmesa'];?></label>
-											<input type="number" name="mesa" id="mesa" class="form-control numero" maxlength="2" required>
+											<input type="number" name="mesa" id="mesa" min="0" class="form-control numero" maxlength="2" required>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label class="form-control-label"> <?=$texto['msg_msg_qtdpessoas'];?></label>
-											<input type="number" value="1" name="pessoas" id="pessoas" class="form-control numero" maxlength="2" required>
+											<input type="number" value="1" name="pessoas" id="pessoas" min="0" class="form-control numero" maxlength="2" required>
 										</div>
 									</div>
 								</div> 
@@ -279,7 +279,6 @@ function tirarAcentos($string){
 
 								</div>
 								<hr />
-								
 								<span style="color: red;"><b>OBSERVAÇÕES:</b>
 									<br /><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Nunca passe seus dados do cartão pelo WHATSAPP!
 									<br /><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ao clicar em "<?=$texto['msg_pedir_agora'];?>" Seu pedido será enviado para o WHATSAPP com um <strong>código</strong> de identificação.
