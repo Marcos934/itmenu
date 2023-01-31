@@ -61,10 +61,16 @@ h3.slide_typo {font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-ser
 h3 .slide_typo strong {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-weight:normal;}
 .slide_typo_2{color:#fff; font-size:18px; white-space:nowrap}
 
+
+.navbar-options-right {
+	top: 0px;
+	right: 0px;
+}
+
 .box_style_2 h2.inner {
 	background-color:#000000; 
 	color:#fff; 
-	margin: -22px -6px 24px -5px; 
+	margin: -20px -15px 25px -15px; 
 	padding: 12px 15px; 
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; 
 	font-size: 22px; 
@@ -129,7 +135,7 @@ a.btn_1, .btn_1{
 	color:#fff;
 	background: #8560a8;
 	cursor: pointer;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	outline: none;
 	font-size:12px;
 	-webkit-transition: all 0.3s;
@@ -154,7 +160,7 @@ a.btn_full, .btn_full{
 	width:100%;
 	background: #8560a8;
 	cursor: pointer;
-	padding: 12px 20px;
+	padding: 12px 10px;
 	outline: none;
 	font-size:12px;
 	-webkit-transition: all 0.3s;
@@ -239,7 +245,7 @@ a.btn_full_outline, .btn_full_outline{
 	width:100%;
 	border:2px solid #8560a8;
 	cursor: pointer;
-	padding: 10px 20px;
+	padding: 10px 9px;
 	display: inline-block;
 	outline: none;
 	font-size:14px;
@@ -352,12 +358,17 @@ header.sticky{
 	padding-top: 15px;
 }
 
+.btn-close-modal-back {
+	font-size: 15px;
+    text-transform: uppercase;
+}
+
 /* Footer  */
-footer{
+/*footer{
 	background-color:#fff;
 	border-top: 1px solid #ededed;
 	padding:35px 0;
-}
+} */
 footer h3{
 	font-size:16px;
 	font-weight:600;
@@ -936,7 +947,7 @@ a.strip_list:hover h3{
 	padding: 25px;
 }
 .box_style_2#main_menu, .box_style_2.info{
-	padding: 20px 5px 15px 5px;
+	padding: 20px 15px 15px 15px;
 }
 .box_style_2#help{
 	text-align:center;
@@ -1018,11 +1029,10 @@ ul#cat_nav li a span{
 	color:#999;
 }
 ul#cat_nav li a:after{
-	font-family: "fontello";
-	content: "\e89b";
-	position:absolute;
-	right: 10px;
-	top: 15px;
+	padding: 15px;
+    font-family: "fontello";
+    content: "\e89b";
+	display: none;
 }
 ul#cat_nav li:last-child{
 	border-bottom: 0;
@@ -1131,7 +1141,7 @@ ul.additional_links li:first-child{
 	color:#fff;
 }
 .options i{
-	font-size:26px;
+	font-size: 28px;
 }
 .row#options_2{
 	margin-bottom:-10px;
@@ -1624,9 +1634,11 @@ s.checkbox-holder {
 	position: relative;
 	display: block;
 }
-.checkbox {
-	position: relative;
+
+.checkbox-row {
+	padding-left: 22px;
 }
+
 .checkbox label:before {
 	content: '';
 	position: absolute;
@@ -1697,6 +1709,7 @@ s.checkbox-holder {
 .add_bottom_45 {margin-bottom:45px;}
 .add_bottom_60 {margin-bottom:60px;}
 .add_bottom_75 {margin-bottom:75px;}
+.add_top_10 {padding-top: 10px;}
 .add_top_20 {padding-top:20px;}
 .add_top_60 {padding-top:60px;}
 .margin_60 {padding-top:60px; padding-bottom:60px;}

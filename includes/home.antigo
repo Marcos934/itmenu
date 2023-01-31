@@ -820,9 +820,9 @@ endif;
 					<?php if(!empty($confirm_delivery) && $confirm_delivery == "true"): ?>
 						<div style="width: 100%;">
 							<div class="radio icheck-midnightblue">					
-								<input type="radio" required value='true' checked="" id="enterega" name="opcao_delivery" 
+								<input type="radio" required value='true' checked="" id="entrega" name="opcao_delivery" 
 								required />
-								<label for="enterega">
+								<label for="entrega">
 									<span style="color:#444;">
 										<p style="font-size: 14px;"><?=$texto['msg_delivery'];?></p>
 									</span>

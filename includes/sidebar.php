@@ -142,13 +142,11 @@ $cart = new Cart([
 		</script>
 		<form id="irpcarrinho" data-toggle="validator" action="<?=$site.$_POST['getloja'].'/';?>carrinho" method="post">
 			<hr />
-			<div class="row" id="options_2" style="padding-left: 12px;">
-
+			<div class="row checkbox-row" id="options_2">
 				<?php if(!empty($getuverificadelivery) && $getuverificadelivery == "true"): ?>
 					<div style="width: 100%;">
 						<div class="radio icheck-midnightblue">					
-							<input type="radio" required value='true' checked="" id="enterega" name="opcao_delivery" 
-							required />
+							<input type="checkbox" required value='true' checked="" id="enterega" name="opcao_delivery" />
 							<label for="enterega">
 								<span style="color:#444;">
 									<p style="font-size: 14px;"><?=$texto['msg_delivery'];?></p>
@@ -159,9 +157,8 @@ $cart = new Cart([
 				<?php endif; ?>
 				<?php if(!empty($getuverificabalcao) && $getuverificabalcao == "true"): ?>
 					<div style="width: 100%;">
-						<div class="radio icheck-midnightblue">					
-							<input type="radio" required value='false' id="buscar" name="opcao_delivery" 
-							required />
+						<div class="radio icheck-midnightblue">
+							<input type="checkbox" required value='false' id="buscar" name="opcao_delivery" />
 							<label for="buscar">
 								<span style="color:#444;">
 									<p style="font-size: 14px;"><?=$texto['msg_Buscar_pedido'];?></p>
@@ -172,9 +169,8 @@ $cart = new Cart([
 				<?php endif; ?>
 				<?php if(!empty($getuverificamesa) && $getuverificamesa == "true"): ?>
 					<div style="width: 100%;">
-						<div class="radio icheck-midnightblue">					
-							<input type="radio" required value='false2' id="mesa" name="opcao_delivery" 
-							required />
+						<div class="radio icheck-midnightblue">
+							<input type="checkbox" required value='false2' id="mesa" name="opcao_delivery" />
 							<label for="mesa">
 								<span style="color:#444;">
 									<p style="font-size: 14px;"><?=$texto['msg_pedido_mesa'];?></p>
@@ -183,9 +179,6 @@ $cart = new Cart([
 						</div>
 					</div>
 				<?php endif; ?>
-
-
-
 
 			</div><!-- Edn options 2 -->			
 			<hr>

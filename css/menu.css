@@ -31,7 +31,9 @@ a.dropdown-toggle.icon-search{display: inline-block;}
 	
 .main-menu {width: auto;}
 .main-menu a {white-space: nowrap;}	
-.main-menu ul li {display: inline-block;}
+.main-menu ul li {
+  display: table-cell;
+}
 
 .main-menu ul li.submenu:hover > a:before,
 .main-menu ul li.submenu:hover > a:after {bottom: -20px;opacity: 0;}
