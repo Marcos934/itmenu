@@ -269,7 +269,7 @@ endif;
           $resumoPedidosFormatado = str_replace('</b>', '', $resumoPedidosFormatado);
 
           $telefoneEmpresaFormatado = formatPhone($telefone_empresa);
-
+          $pedido_em_mesa = strpos( $msg_delivery_false, 'Mesa') !== false;
           echo "<b>".$nome_empresa."</b>";
           echo ".\n <br />";
 
@@ -302,8 +302,10 @@ endif;
           echo "DADOS DO CLIENTE: <br />";
 
           echo "NOME: {$nomeCliente}\n  <br />";
-          echo "TEL: {$telefoneformatado}\n  <br />";  
-
+          if (!$pedido_em_mesa){
+            echo "TEL: {$telefoneformatado}\n  <br />";  
+          }
+          
           echo "-----------------------------"."\n  <br />"; 
           echo "\n <br />"; 
 
@@ -377,18 +379,20 @@ endif;
 
     </div>
       <br />
-    <div class="form-group">                
-      <div class="icheck-material-green">
-        <input type="checkbox" name="confirm_whatsapp" value="true" id="green" />
-        <label for="green"><strong>Enviar msg para o whatsapp do cliente.</strong></label>
+    <?php if (!$pedido_em_mesa):?>
+      <div class="form-group">
+        <div class="icheck-material-green">
+          <input type="checkbox" name="confirm_whatsapp" value="true" id="green" />
+          <label for="green"><strong>Enviar msg para o whatsapp do cliente.</strong></label>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="exampleFormControlTextarea5"></label>
-      <textarea id="campomsg" name="campomsg" required class="form-control" rows="5" ></textarea>
-      <center><small>Essa msg será enviada ao cliente pelo whatsapp.</small></center>
-    </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea5"></label>
+        <textarea id="campomsg" name="campomsg" required class="form-control" rows="5" ></textarea>
+        <center><small>Essa msg será enviada ao cliente pelo whatsapp.</small></center>
+      </div>
+    <?php endif;?>
 
 
     <input type="hidden" name="id" value="<?=$id;?>">

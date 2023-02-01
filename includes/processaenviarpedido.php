@@ -131,7 +131,8 @@ if (isset($get_dados_pedido['enviar_pedido']) && $get_dados_pedido['enviar_pedid
 	if (!$get_dados_pedido['mesa']) {
 		$get_dados_pedido['telefone'] = preg_replace("/[^0-9]/", "", $get_dados_pedido['telefone']);
 	} else {
-		$get_dados_pedido['telefone'] = '99000000000';
+		// Se pedido em mesa
+		unset($get_dados_pedido['telefone']);
 	}
 
 
@@ -147,13 +148,16 @@ if (isset($get_dados_pedido['enviar_pedido']) && $get_dados_pedido['enviar_pedid
 		'Opss... {$texto['msg_msg_camposVazios']}',
 		'error', false);" . $soundEffect . "
 			</script>";
-	elseif (strlen($get_dados_pedido['telefone']) < 11):
+	elseif (!$get_dados_pedido['mesa'] && strlen($get_dados_pedido['telefone']) < 11):
 		echo "<script>
 		x0p('', 
 		'Opss... O numero de telefone informado e inválido!',
 		'error', false);" . $soundEffect . "
 			</script>";
 	else:
+		if ($get_dados_pedido['mesa']) {
+			$get_dados_pedido['telefone'] = 'MESA: '.$get_dados_pedido['mesa'];
+		};		
 		$moeda = "R$";
 		$mes = date("m");
 		$ano = date("y");
