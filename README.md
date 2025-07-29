@@ -270,11 +270,6 @@ O sistema possui integração completa com webhooks do Mercado Pago para:
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-## 📞 Suporte
-
-Para suporte e dúvidas:
-- Email: marcos.mulinari97@gmail.com
-
 ## 🔄 Atualizações
 
 ### Versão Atual
