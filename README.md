@@ -249,6 +249,17 @@ O sistema possui integração completa com webhooks do Mercado Pago para:
 
 ## 🤝 Contribuição
 
+### Desenvolvedores
+
+- **Marcos Vinicius Mulinari** - Desenvolvedor Principal
+  - GitHub: [Marcos934](https://github.com/Marcos934)
+  - Email: marcos.mulinari97@gmail.com
+
+- **Patrick Miranda** - Desenvolvedor Participante
+  - GitHub: [patricksouza](https://github.com/patricksouza)
+
+### Como Contribuir
+
 1. Faça um fork do projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
@@ -263,7 +274,6 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 Para suporte e dúvidas:
 - Email: marcos.mulinari97@gmail.com
-- WhatsApp: +55 92 99146-1245
 
 ## 🔄 Atualizações
 
